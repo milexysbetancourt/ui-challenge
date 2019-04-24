@@ -1,16 +1,27 @@
+@import "./variables.scss";
+
 .Card {
-  border: 1px solid #cac9c9;
+  color: $primaryGray;
+  border: 1px solid $primaryGray;
   min-width: 106px;
   height: 110px;
   border-radius: 0.25em;
-  margin: 1%;
+  margin: 7px;
+  &:hover {
+    border: 1px solid $secondGray;
+  }
+  &:active {
+    border: 1px solid $successColor;
+  }
   .Mural-size {
     height: 70%;
     display: flex;
     justify-content: center;
     align-items: center;
     div {
-      border: 1px solid #a2a2a2;
+      font-weight: 600;
+      color: $secondGray;
+      border: 1px solid $secondGray;
       font-size: 10px;
       width: 50px;
       height: 50px;
@@ -20,8 +31,11 @@
     }  
   }
   p {
-    font-size: 10px;
+    font-size: 11px;
     margin: 0;
     text-align: center;
+  }
+  p:first-of-type {
+    color: $secondGray;
   }
 }

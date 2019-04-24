@@ -1,18 +1,23 @@
+@import "./variables.scss";
+
 .Slider {
   border: 1px solid red;
   display: flex;
-  height: 80vh;
-  margin: 0 auto;
-  align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  flex-direction: column;
   position: relative;
-  width: 33%;
+  width: 570px;
   margin: 0 auto;
   overflow-x: hidden;
+  margin-top: 5%;
   .wrapper {
     display: inline-flex;
-    position: absolute;
     left: 3%;
     transition: transform 300ms cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  }
+  h4 {
+    color: $secondGray;
+    margin: 10px 8px 0px;
+    font-size: 12px;
   }  
 }
