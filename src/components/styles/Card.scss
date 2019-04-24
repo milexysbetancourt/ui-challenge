@@ -10,8 +10,11 @@
   &:hover {
     border: 1px solid $secondGray;
   }
-  &:active {
+  &-active {
     border: 1px solid $successColor;
+    &:hover {
+      border: 1px solid $successColor;
+    }
   }
   .Mural-size {
     height: 70%;
@@ -39,3 +42,4 @@
     color: $secondGray;
   }
 }
+
