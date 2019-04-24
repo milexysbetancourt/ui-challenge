@@ -3,12 +3,16 @@ import React from 'react';
 import './styles/Card.scss';
 import icon from './styles/custom-size-icon.svg';
 
-const CustomCard = ({customSize}) => {
+const CustomCard = (props) => {
   
-  const {index, name, styles} = customSize;
-  
+  const {index, name, styles} = props.customSize;
+  const className = props.isActive ? "Card Card-active" : "Card";
+
   return (
-    <div className="Card" id={index}>
+    <div 
+      className={className}
+      id={index}
+      onClick={() => props.handleClick(index)}>
       <div className="Mural-size">
         <div style={styles} >
         <img src={icon} className="" alt="custom-size" />
