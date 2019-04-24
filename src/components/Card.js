@@ -2,9 +2,9 @@ import React from 'react';
 
 import './styles/Card.scss';
 
-const Card = ({layout}) => {
+const Card = ({size}) => {
   
-  const {index, shortName, name, description, styles} = layout;
+  const {index, shortName, name, description, styles} = size;
   
   return (
     <div className="Card" id={index}>
