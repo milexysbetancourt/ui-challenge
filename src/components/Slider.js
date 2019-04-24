@@ -9,7 +9,6 @@ import Card from './Card';
 import CustomCard from './CustomCard';
 import CustomForm from './CustomForm';
 
-
 class Slider extends Component {
 
   constructor(props){
@@ -19,7 +18,12 @@ class Slider extends Component {
       customSize: data.customSize,
       position: 0,
       activeCard: -1,
-      activeCustomCard: false
+      activeCustomCard: false,
+      disabledButton: true,
+      form: {
+        widht: '',
+        heigth: ''
+      }
     }
   }
 
@@ -35,17 +39,36 @@ class Slider extends Component {
     });
   } 
 
+  handleValidation = () => {
+    let form = this.state.form;
+    console.log(form);
+
+    if(!form.widht || !form.length){
+      return false;
+    } else if (form.widht < 3000 || form.length > 69000) {
+      return false;  
+    } 
+    return true;
+  }
+
   handleSelectedCard = (index) => {
     
     this.setState({
       activeCard: index
-    })
+    });
 
     if (index === this.state.customSize.index) {
-      this.state.activeCustomCard = true;
+      this.setState({
+        activeCustomCard: true,
+        disabledButton: true
+      });
     }
     else {
-      this.state.activeCustomCard = false;
+      this.setState({
+        activeCustomCard: false,
+        disabledButton: false
+      });
+
       const msj = `Card ${index} selected`;
       alert(msj);
     }
@@ -75,7 +98,11 @@ class Slider extends Component {
         </div>
         <RightArrow handleClick={this.handleRightArrow}/>
 
-        <CustomForm activeSizeInput={this.state.activeCustomCard}/>
+        <CustomForm 
+          activeSizeInput={this.state.activeCustomCard}
+          disabledButton={this.state.disabledButton}
+          formValues={this.state.form}
+          handleValidation={this.handleValidation}/>
       </div>
     );
   }

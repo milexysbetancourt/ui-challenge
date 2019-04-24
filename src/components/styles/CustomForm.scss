@@ -21,6 +21,10 @@
         &[type=number] {
             -moz-appearance:textfield;
         }
+        &:focus {
+          outline: 0px;
+          border-color: $successColor;
+        }
       }
       label {
         color: $primaryGray;
@@ -41,6 +45,11 @@
       margin: 10px;
       bottom: 0;   
       font-size: 15px; 
+      &:disabled{
+        background-color: $primaryGray;
+        border-color: $primaryGray;
+        color: $secondGray;
+      }
     }
   }
 }

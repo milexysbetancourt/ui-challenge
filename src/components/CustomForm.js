@@ -2,20 +2,20 @@ import React from 'react';
 
 import './styles/CustomForm.scss';
 
-const CustomForm = ( {activeSizeInput} ) => {
+const CustomForm = ( props ) => {
   
   return (
     <div className="CustomForm">
       <form >
-        {activeSizeInput &&
+        {props.activeSizeInput &&
           <div>
             <div className="form-group">
               <label>WIDHT (px)</label>
               <input
-                /* onChange={this.props.onChange} */
+                onChange={() => props.handleValidation}
                 type="number"
                 name="widht"
-                /* value={this.props.formValues.firstName} */
+                value={props.formValues.widht}
               />
             </div>
             
@@ -23,15 +23,15 @@ const CustomForm = ( {activeSizeInput} ) => {
             
               <label>HEIGHT (px)</label>
               <input
-                /* onChange={this.props.onChange} */
+                onChange={() => props.handleValidation}
                 type="number"
-                name="widht"
-                /* value={this.props.formValues.firstName} */
+                name="heigth"
+                value={props.formValues.heigth}
               />
             </div>
           </div>
         }
-        <button className="">
+        <button disabled={props.disabledButton} className="">
           DONE
         </button>
       </form>
