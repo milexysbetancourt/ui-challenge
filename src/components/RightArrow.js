@@ -6,7 +6,7 @@ import './styles/RightArrow.scss';
 
 const RightArrow = (props) => {
   return (
-    <div className="RightArrow">
+    <div className="RightArrow" onClick={() => props.handleClick()} >
       <FontAwesomeIcon icon={faChevronRight} />
     </div>
   );
