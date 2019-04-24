@@ -2,17 +2,19 @@ import React from 'react';
 
 import './styles/Card.scss';
 
-const Card = () => {
+const Card = ({layout}) => {
+  
+  const {index, shortName, name, description, styles} = layout;
   
   return (
-    <div className="Card">
+    <div className="Card" id={index}>
       <div className="Mural-size">
-        <div>
-          <p>1x</p>
+        <div style={styles} >
+          <p>{shortName}</p>
         </div>
       </div>
-      <p>Default</p>
-      <p>9000 x 6000 px</p>
+      <p>{name}</p>
+      <p>{description}</p>
     </div>
   )
 }
