@@ -1,11 +1,12 @@
-const dataLayouts = [
+const data = {
+  "sizes": [
   {
     "index": 0,
     "shortName": "1x", 
     "name": "Default",
     "description": "2700 x 6000 px",
     "styles": {
-      "width": 42,
+      "width": 44,
       "height": 34, 
     }
   },
@@ -15,7 +16,7 @@ const dataLayouts = [
     "name": "Horizontal 2x",
     "description": "2700 x 6000 px",
     "styles": {
-      "width": 58,
+      "width": 62,
       "height": 34, 
     }
   },
@@ -25,7 +26,7 @@ const dataLayouts = [
     "name": "Horizontal 3x",
     "description": "2700 x 6000 px",
     "styles": {
-      "width": 70,
+      "width": 76,
       "height": 34, 
     }
   },
@@ -50,7 +51,15 @@ const dataLayouts = [
       "height": 64, 
     }    
   },  
-]
+  ],
+  customSize: {
+    "index": 5,
+    "name": "Custom Size",
+    "styles": {
+      "width": 48,
+      "height": 46, 
+    }    
+  }
+}
 
-export default dataLayouts
-;
+export default data;
