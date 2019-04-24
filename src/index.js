@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.scss';
-import App from './components/App';
+import Slider from './components/Slider';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<Slider />, document.getElementById('root'));
