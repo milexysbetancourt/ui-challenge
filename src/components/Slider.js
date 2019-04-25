@@ -21,9 +21,10 @@ class Slider extends Component {
       activeCustomCard: false,
       disabledButton: true,
       form: {
-        widht: '',
-        heigth: ''
-      }
+        width: '',
+        height: '',
+      },
+      errorMessage: ''
     }
   }
 
@@ -39,17 +40,44 @@ class Slider extends Component {
     });
   } 
 
-  handleValidation = () => {
-    let form = this.state.form;
-    console.log(form);
-
-    if(!form.widht || !form.length){
-      return false;
-    } else if (form.widht < 3000 || form.length > 69000) {
-      return false;  
-    } 
-    return true;
+  validateForm = () => {
+   
+    const width = Number(this.state.form.width);
+    const height = Number(this.state.form.height);
+  
+    if (width && (width < 3000 || width > 60000)) {
+      this.setState({
+        disabledButton: true,
+        errorMessage: 'Width value not valid'
+      });
+    } else if (height && (height < 3000 || height > 60000)) {
+      this.setState({
+        disabledButton: true,
+        errorMessage: 'Height value not valid'
+      });
+    } else {
+      this.setState({
+        disabledButton: false,
+        errorMessage: ''
+      });
+    }
   }
+
+  handleChange = e => { 
+    this.setState({
+      form: {
+        ...this.state.form,
+        [e.target.name]: e.target.value,
+      }
+    }, () => {
+      this.validateForm();  
+    }); 
+  }
+
+  handleSubmit = e => {
+    e.preventDefault();
+    console.log('Form was submitted');
+  };
 
   handleSelectedCard = (index) => {
     
@@ -68,9 +96,6 @@ class Slider extends Component {
         activeCustomCard: false,
         disabledButton: false
       });
-
-      const msj = `Card ${index} selected`;
-      alert(msj);
     }
   }
 
@@ -99,10 +124,12 @@ class Slider extends Component {
         <RightArrow handleClick={this.handleRightArrow}/>
 
         <CustomForm 
-          activeSizeInput={this.state.activeCustomCard}
+          activeCard={this.state.activeCustomCard}
           disabledButton={this.state.disabledButton}
-          formValues={this.state.form}
-          handleValidation={this.handleValidation}/>
+          form={this.state.form}
+          onChange={this.handleChange}
+          handleSubmit={this.handleSubmit}
+          errorMessage={this.state.errorMessage}/>
       </div>
     );
   }
