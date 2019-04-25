@@ -24,19 +24,22 @@ class Slider extends Component {
         width: '',
         height: '',
       },
-      errorMessage: ''
+      errorMessage: '',
+      hideArrow: 'left'
     }
   }
 
   handleLeftArrow = () => {
     this.setState({
-      position: 0
+      position: 0,
+      hideArrow: 'left'
     });
   }
   
   handleRightArrow = () => {
     this.setState({
-      position: 30
+      position: 30,
+      hideArrow: 'rigth'
     });
   } 
 
@@ -82,7 +85,12 @@ class Slider extends Component {
   handleSelectedCard = (index) => {
     
     this.setState({
-      activeCard: index
+      activeCard: index,
+      form: {
+        width: '',
+        height: ''
+      },
+      errorMessage: ''
     });
 
     if (index === this.state.customSize.index) {
@@ -104,7 +112,9 @@ class Slider extends Component {
     return (
       <div className="Slider">
         <h4>MURAL SIZE</h4>
-        <LeftArrow handleClick={this.handleLeftArrow}/>
+        {this.state.hideArrow !== 'left' &&
+          <LeftArrow handleClick={this.handleLeftArrow}/>
+        }
         <div className="wrapper" style={{'transform': `translateX(-${this.state.position}%)`}}>
           {
             this.state.sizes.map( size => 
@@ -121,7 +131,9 @@ class Slider extends Component {
             isActive={this.state.customSize.index === this.state.activeCard}  
           />
         </div>
-        <RightArrow handleClick={this.handleRightArrow}/>
+        {this.state.hideArrow !== 'rigth' &&
+          <RightArrow handleClick={this.handleRightArrow}/>
+        }
 
         <CustomForm 
           activeCard={this.state.activeCustomCard}

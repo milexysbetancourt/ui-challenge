@@ -3,17 +3,18 @@
 .Card {
   color: $primaryGray;
   border: 1px solid $primaryGray;
+  box-sizing: border-box;
   min-width: 106px;
   height: 110px;
   border-radius: 0.25em;
   margin: 7px;
   &:hover {
-    border: 1px solid $secondGray;
+    border: 2px solid $secondGray;
   }
   &-active {
-    border: 1px solid $successColor;
+    border: 2px solid $successColor;
     &:hover {
-      border: 1px solid $successColor;
+      border: 2px solid $successColor;
     }
   }
   .Mural-size {

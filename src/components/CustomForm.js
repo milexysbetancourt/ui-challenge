@@ -26,7 +26,7 @@ const CustomForm = (props) => {
                 name="height"
                 value={props.form.height}/>
             </div>
-            <div>
+            <div className="error">
               {props.errorMessage}
             </div>
           </div>

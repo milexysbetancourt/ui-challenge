@@ -9,10 +9,11 @@
       width: 16%;
       display: inline-block;
       input {
-        width: 80px;
-        height: 38px;
+        width: 60px;
         border-radius: 5px;
         border: 1px solid $primaryGray; 
+        padding: 14px;
+        font-size: 15px;
         &[type=number]::-webkit-inner-spin-button, 
         &[type=number]::-webkit-outer-spin-button { 
           -webkit-appearance: none; 
@@ -29,27 +30,32 @@
       label {
         color: $primaryGray;
         position: absolute;
-        font-size: 12px;
+        font-size: 11px;
         top: 0;
         padding-left: 4px;
       }  
     }
     button {
       color: white;
-      width: 90px;
-      height: 44px;
+      width: 96px;
+      height: 46px;
       border-radius: 5px;
       border: 1px solid $successColor;
       background-color: $successColor; 
       float: right;
       margin: 10px;
       bottom: 0;   
-      font-size: 15px; 
+      font-size: 16px; 
       &:disabled{
-        background-color: $primaryGray;
-        border-color: $primaryGray;
+        background-color: #e0e0e0;
+        border-color: #e0e0e0;
         color: $secondGray;
       }
+    }
+    .error {
+      color: red;
+      font-size: 13px;
+      margin-left: 2%;
     }
   }
 }
