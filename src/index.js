@@ -3,6 +3,6 @@ import ReactDOM from 'react-dom';
 
 import './index.scss';
 
-import Slider from './components/SliderContainerContainer';
+import SliderContainer from './components/SliderContainer';
 
-ReactDOM.render(<Slider />, document.getElementById('root'));
+ReactDOM.render(<SliderContainer/>, document.getElementById('root'));
