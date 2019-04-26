@@ -1,9 +1,12 @@
+// Componente creado solo para el Custom Card
+// Preferí separarlo como otro componente para evitar confusiones de validaciones
+// y hacer el código mas legible
+
 import React from 'react';
 
 import icon from '../assets/custom-size-icon.svg';
 
 import './styles/Card.scss';
-
 
 const CustomCard = (props) => {
   

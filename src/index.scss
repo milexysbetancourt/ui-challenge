@@ -1,10 +1,18 @@
-@import "/assets/styles/fonts";
+// Incluí la fuente directamente acá, ya que tuve inconveniente obteniendo las 
+// fuentes desde un archivo independiente
+@font-face {
+  font-family: "ProximaNova";
+  font-style: normal;
+  font-weight: 400;
+  src:
+    url(./assets/fonts/ProximaNova-Regular.otf) format('truetype');
+}
 
 html {
   background: #f1f1f1;
 }
 body {
-  font-family: "ProximaNova";
+  font-family: "ProximaNova", sans-serif;
   margin: 0;
   padding: 0;
   -webkit-font-smoothing: antialiased;
