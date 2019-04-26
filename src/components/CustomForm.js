@@ -1,3 +1,7 @@
+// Componente creado para el formulario
+// Incluye los inputs para el Custom Card y el botón Done
+// Las validaciones del formulario se realizan en el Componente principal SliderContainer
+
 import React from 'react';
 
 import './styles/CustomForm.scss';
@@ -5,6 +9,7 @@ import './styles/CustomForm.scss';
 const CustomForm = (props) => {
   return (
     <div className="CustomForm">
+
       <form onSubmit={props.handleSubmit}>
         {props.activeCard &&
           <div>

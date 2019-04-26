@@ -13,11 +13,14 @@ function Slider (props) {
   return (
      <div className="Slider">
         <h4>MURAL SIZE</h4>
+
         {props.slider.hideArrow !== 'left' &&
           <LeftArrow handleClick={props.handleLeftArrow}/>
         }
+
         <div className="wrapper" style={{'transform': `translateX(-${props.slider.position}%)`}}>
           {
+            // Se llama al componente Card por cada uno de los objetos obtenidos del archivo data
             props.slider.sizes.map( size => 
               <Card 
                 key={size.index} 
@@ -26,16 +29,21 @@ function Slider (props) {
                 isActive={size.index === props.slider.activeCard}/>
             )
           }
+          
+          {/* Se llama de manera independiente al Custom Card  */}
           <CustomCard 
             customSize={props.slider.customSize}
             handleClick={props.handleSelectedCard} 
             isActive={props.slider.customSize.index === props.slider.activeCard}  
           />
+
         </div>
+
         {props.slider.hideArrow !== 'rigth' &&
           <RightArrow handleClick={props.handleRightArrow}/>
         }
 
+        {/* Se llama al formulario, se muestra solo el botón Done por defecto */}
         <CustomForm 
           activeCard={props.slider.activeCustomCard}
           disabledButton={props.slider.disabledButton}

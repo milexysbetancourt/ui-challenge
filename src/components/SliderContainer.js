@@ -3,10 +3,11 @@
 import React, {Component} from 'react';
 
 // Se importa del archivo data la información a mostrar para cada Card, incluyendo el Custom Card.
-// De esta manera si se necesita agregar nuevos Card o cambiar la información que muestran,
+// De esta manera si se necesita agregar nuevos Card o cambiar la información que muestran
 // solo se debe editar este archivo
 import data from '../data';
 
+//Se importa el Componente UI Slider
 import Slider from './Slider';
 
 class SliderContainer extends Component {
@@ -15,18 +16,26 @@ class SliderContainer extends Component {
     super(props);
 
     this.state = {
-      sizes: data.sizes,
-      customSize: data.customSize,
-      position: 0,
-      activeCard: -1,
-      activeCustomCard: false,
-      disabledButton: true,
-      form: {
+      sizes: data.sizes,            // Se obtiene la cantidad de Cards a mostrar, incluyendo textos y estilos 
+      customSize: data.customSize,  // Se obtiene la información del Card Customizable, incluyendo 
+                                    // su id requerido para posteriores validaciones
+      
+      position: 0,                  // Posición inicial del slider
+      
+      activeCard: -1,               // Variable utilizada para guardar el id del Card seleccionado
+      
+      activeCustomCard: false,      // Flag utilizado para mostrar o no los inputs Width y Height
+
+      disabledButton: true,         // Flag utilizado para habilitar el botón Done
+      
+      form: {                       // Objeto que guarda los valores de los inputs del formulario
         width: '',
         height: '',
       },
-      errorMessage: '',
-      hideArrow: 'left'
+
+      errorMessage: '',             // Variable utilizada para mostrar mensaje de error si se ingresan valores no permitidos
+
+      hideArrow: 'left'             // Flag utilizado para mostrar un solo Arrow del Slider en un mismo momento
     }
   }
 
@@ -44,8 +53,8 @@ class SliderContainer extends Component {
     });
   } 
 
+  // Funcion utilizada para validar los campos Width - Height
   validateForm = () => {
-   
     const width = Number(this.state.form.width);
     const height = Number(this.state.form.height);
   
@@ -67,6 +76,7 @@ class SliderContainer extends Component {
     }
   }
 
+  // Funcion encargada de obtener los valores ingresados en el formulario
   handleChange = e => { 
     this.setState({
       form: {
@@ -74,26 +84,32 @@ class SliderContainer extends Component {
         [e.target.name]: e.target.value,
       }
     }, () => {
+      // Luego de actualizar el estado se llama el callback para realizar las validaciones
+      // Se realiza como un callback para asegurar que se realice la validación cuando el estado ya esté actualizado
       this.validateForm();  
     }); 
   }
 
+
+  // Función que se activa al dar click al botón Done
   handleSubmit = e => {
     e.preventDefault();
     console.log('Form was submitted');
   };
 
+  // Función qque se activa cuando se da click a un Card
   handleSelectedCard = (index) => {
     
     this.setState({
       activeCard: index,
-      form: {
+      form: {     // Se limpia el formulario para evitar mostrar valores antiguos al volver a seleccionar el Custom Card
         width: '',
         height: ''
       },
       errorMessage: ''
     });
 
+    // Si el Custom Card fue el seleccionado, se activa el formulario
     if (index === this.state.customSize.index) {
       this.setState({
         activeCustomCard: true,
@@ -111,6 +127,7 @@ class SliderContainer extends Component {
   render() {
   
     return (
+      // Componente UI
       <Slider 
         slider={this.state}
         handleSubmit={this.handleSubmit}
