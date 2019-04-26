@@ -1,4 +1,4 @@
-# PROJECT UI Challenge
+# UI Challenge Slider
 
 ## Requiremientos
 
