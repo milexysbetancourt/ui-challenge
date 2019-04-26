@@ -17,7 +17,7 @@ const Card = (props) => {
           <p>{shortName}</p>
         </div>
       </div>
-      <p><b>{name}</b></p>
+      <p>{name}</p>
       <p>{description}</p>
     </div>
   )

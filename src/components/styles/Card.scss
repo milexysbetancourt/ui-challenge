@@ -1,6 +1,7 @@
-@import "./variables.scss";
+@import "../../assets/styles/variables";
 
 .Card {
+  font-family: 'ProximaNova', sans-serif;
   color: $primaryGray;
   border: 1px solid $primaryGray;
   box-sizing: border-box;
@@ -40,6 +41,7 @@
     text-align: center;
   }
   p:first-of-type {
+    font-family: "ProximaNova-Bold";
     color: $secondGray;
   }
 }
