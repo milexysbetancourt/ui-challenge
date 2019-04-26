@@ -1,7 +1,9 @@
 import React from 'react';
 
+import icon from '../assets/custom-size-icon.svg';
+
 import './styles/Card.scss';
-import icon from './styles/custom-size-icon.svg';
+
 
 const CustomCard = (props) => {
   

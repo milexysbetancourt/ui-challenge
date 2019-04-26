@@ -1,4 +1,4 @@
-@import "./variables.scss";
+@import "../../assets/styles/variables";
 
 .CustomForm {
   form{
@@ -30,7 +30,7 @@
       label {
         color: $primaryGray;
         position: absolute;
-        font-size: 11px;
+        font-size: 12px;
         top: 0;
         padding-left: 4px;
       }  
